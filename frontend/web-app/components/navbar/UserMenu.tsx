@@ -1,6 +1,6 @@
 'use client'
 
-import { signOutUser } from '@/app/auth/actions/authActions';
+import { signOutUser } from '@/app/actions/authActions';
 import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@nextui-org/react';
 import { Session } from 'next-auth';
 import Link from 'next/link';

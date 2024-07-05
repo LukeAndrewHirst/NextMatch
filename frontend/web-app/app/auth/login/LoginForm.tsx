@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Card, CardBody, CardHeader, Input } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
 import { GiPadlock } from 'react-icons/gi';
-import { signInUser } from '../actions/authActions';
+import { signInUser } from '../../actions/authActions';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 

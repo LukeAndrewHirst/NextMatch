@@ -33,4 +33,31 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   accounts      Account[]
+  member        Member?
+}
+
+model Member {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  name          String
+  gender        String
+  dateOfBirth   DateTime
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now())
+  description   String
+  city          String
+  country       String
+  image         String?
+
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  photos        Photo[]
+}
+
+model Photo {
+  id            String    @id @default(cuid())
+  url           String
+  publicId      String?
+  memberId      String
+
+  member   Member         @relation(fields: [memberId], references: [id], onDelete: Cascade)
 }

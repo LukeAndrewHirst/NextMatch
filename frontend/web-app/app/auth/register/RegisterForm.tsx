@@ -6,7 +6,7 @@ import { Card, CardHeader, CardBody, Button, Input } from '@nextui-org/react';
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { GiPadlock } from 'react-icons/gi';
-import { registerUser } from '../actions/authActions';
+import { registerUser } from '../../actions/authActions';
 
 export default function RegisterForm() {
     const {register, handleSubmit, setError, formState: { errors, isValid, isSubmitting}} = useForm<RegisterSchema>({//resolver: zodResolver(registerSchema), 
