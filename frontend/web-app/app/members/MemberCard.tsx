@@ -4,7 +4,7 @@ import { Card, CardFooter, Image } from '@nextui-org/react'
 import { Member } from '@prisma/client'
 import Link from 'next/link'
 import React from 'react'
-import { calculateAge } from '../lib/util'
+import { calculateAge, transformImageUrl } from '../lib/util'
 import LikeButton from '@/components/LikeButton'
 
 type Props = {
@@ -23,7 +23,7 @@ export default function MemberCard({member, likeIds} : Props) {
 
   return (
     <Card fullWidth as={Link} href={`/members/${member.userId}`} isPressable>
-        <Image isZoomed alt={member.name} src={member.image || '/images/user.png'} width={300} className='aspect-square object-cover' />
+        <Image isZoomed alt={member.name} src={transformImageUrl(member.image) || '/images/user.png'} width={300} className='aspect-square object-cover' />
         <div onClick={preventLinkAction}>
           <div className='absolute top-3 right-3 z-50'>
             <LikeButton targetId={member.userId} hasLiked={hasLiked}/>

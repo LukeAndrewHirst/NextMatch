@@ -1,14 +1,15 @@
-
-import { Button, Navbar, NavbarBrand, NavbarContent } from '@nextui-org/react'
-import Link from 'next/link'
-import React from 'react'
-import { GiMatchTip } from 'react-icons/gi'
-import NavLink from './NavLink'
-import { auth } from '@/auth'
-import UserMenu from './UserMenu'
+import React from 'react';
+import { Button, Navbar, NavbarBrand, NavbarContent } from '@nextui-org/react';
+import Link from 'next/link';
+import { GiMatchTip } from 'react-icons/gi';
+import NavLink from './NavLink';
+import { auth } from '@/auth';
+import UserMenu from './UserMenu';
+import { getUserInfoForNav } from '@/app/actions/userActions';
 
 export default async function TopNav() {
   const session = await auth();
+  const userInfo = session?.user && await getUserInfoForNav();
 
   return (
     <Navbar maxWidth='xl' className='bg-gradient-to-r from-purple-400 to-purple-700' classNames={{ item: ['xex-xl', 'text-white', 'uppercase', 'data-[active=true]:text-yellow-200']}}>
@@ -25,9 +26,9 @@ export default async function TopNav() {
             <NavLink href='/messages' label='Messages' />
         </NavbarContent>
         <NavbarContent justify='end'>
-            {session?.user ? (
-                <UserMenu user={session.user} />
-            ): (
+            {userInfo ? (
+                <UserMenu userInfo={userInfo} />
+            ) : (
                 <>
                     <Button as={Link} href='/auth/login' variant='bordered' className='text-white'>Login</Button>
                     <Button as={Link} href='/auth/register' variant='bordered' className='text-white'>Register</Button>
