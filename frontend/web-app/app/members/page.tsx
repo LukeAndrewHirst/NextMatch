@@ -1,4 +1,6 @@
-import React from 'react'
+
+
+import React from 'react';
 import { getMembers } from '../actions/memberActions';
 import MemberCard from './MemberCard';
 import { fetchCurrentUserLikeIds } from '../actions/likeActions';

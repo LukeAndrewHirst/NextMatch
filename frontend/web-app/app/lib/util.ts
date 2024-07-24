@@ -1,4 +1,5 @@
 import { differenceInYears } from "date-fns";
+import { format } from "date-fns/format";
 import { FieldValues, Path, UseFormSetError } from "react-hook-form";
 import { ZodIssue } from "zod";
 
@@ -27,4 +28,17 @@ export function transformImageUrl(imageUrl?: string | null) {
     const transformation = 'c_fill,w_300,h_300,g_faces/';
 
     return `${imageUrl.slice(0,uploadIndex)}${transformation}${imageUrl.slice(uploadIndex)}`;
+}
+
+export function formatDateTime(date: Date) {
+    return format(date, 'dd MMMM yyy HH:mm');
+}
+
+export function truncateString(text?: string | null, num = 50) {
+    if(!text)  return null;
+    if(text.length <= num) {
+        return text;
+    }
+    
+    return text.slice(0, num) + '...';
 }
