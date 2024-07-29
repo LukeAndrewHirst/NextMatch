@@ -6,6 +6,7 @@ import React from 'react';
 import { calculateAge, transformImageUrl } from '../lib/util';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import PresenceOnline from '@/components/PrecenceOnline';
 
 type Props = {
     member: Member,
@@ -18,8 +19,16 @@ export default function MemberSideBar({member, navLinks}: Props) {
   return (
     <Card className='w-full mt-10 items-center h-[80vh]'>
         <Image height={200} width={200} src={transformImageUrl(member.image) || '/images/user.png'} alt={member.name} className='rounded-full mt-6 aspect-square object-cover' />
-        <CardBody className='flex flex-col items-center'>
-            <div className='text-2xl'>{member.name}, {calculateAge(member.dateOfBirth)}</div>
+        <CardBody className='overflow-hidden'>
+            <div className='flex flex-col items-center'>
+                <div className='text-2xl'>
+                    {member.name}, {calculateAge(member.dateOfBirth)}
+                </div>
+                <div>
+                    <PresenceOnline member={member} />
+                </div>
+            </div>
+            
             <div className='text-sm text-neutral-500'>
                 {member.city}, {member.country}
             </div>

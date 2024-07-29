@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import TopNav from "@/components/navbar/TopNav";
+import { auth } from "@/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,15 +11,17 @@ export const metadata: Metadata = {
   title: "Next Match"
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+  const userId = session?.user?.id || null;
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
+        <Providers userId={userId}>
           <TopNav />
           <main className='container mx-auto'>
             {children}

@@ -12,7 +12,7 @@ export default async function MessagesPage({searchParams}: {searchParams: {conta
         <MessageSideBar />
       </div>
       <div className='col-span-10'>
-        <MessageTable messages={messages} />
+        <MessageTable intialMessages={messages} />
       </div>
     </div>
   )

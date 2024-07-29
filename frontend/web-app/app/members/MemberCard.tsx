@@ -6,6 +6,7 @@ import Link from 'next/link'
 import React from 'react'
 import { calculateAge, transformImageUrl } from '../lib/util'
 import LikeButton from '@/components/LikeButton'
+import PresenceOnline from '@/components/PrecenceOnline'
 
 type Props = {
     member: Member
@@ -27,6 +28,9 @@ export default function MemberCard({member, likeIds} : Props) {
         <div onClick={preventLinkAction}>
           <div className='absolute top-3 right-3 z-50'>
             <LikeButton targetId={member.userId} hasLiked={hasLiked}/>
+          </div>
+          <div className='absolute top-2 left-3 z-50'>
+            <PresenceOnline member={member} />
           </div>
         </div>
         <CardFooter className='flex justify-start bg-black overflow-hidden absolute bottom-0 z-10 bg-dark-gardient'>
