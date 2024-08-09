@@ -6,7 +6,7 @@ import { GetMemberParams, PaginatedResponse } from "../types";
 import { addYears } from "date-fns";
 import { getAuthUserId } from "./authActions";
 
-export async function getMembers({ageRange = '18,100', gender = 'male,female', orderBy = 'updated', pageNumber = '1', pageSize = '12', withPhoto = 'true'}: GetMemberParams): Promise<PaginatedResponse<Member>> {
+export async function getMembers({ageRange = '18,100', gender = 'male,female', orderBy = 'updatedAt', pageNumber = '1', pageSize = '12', withPhoto = 'true'}: GetMemberParams): Promise<PaginatedResponse<Member>> {
     const userId = await getAuthUserId();
 
     const [minAge, maxAge] = ageRange.split(',');

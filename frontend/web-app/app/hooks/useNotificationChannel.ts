@@ -7,7 +7,7 @@ import useMessageStore from "./useMessageStore";
 import { newMessageToast } from "@/components/NewMessageToast";
 import { newLikeToast } from "@/components/NotificationToast";
 
-export const useNotificationChannel = (userId: string | null) => {
+export const useNotificationChannel = (userId: string | null, profileComplete: boolean) => {
     const channelRef = useRef<Channel | null>(null);
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -32,7 +32,7 @@ export const useNotificationChannel = (userId: string | null) => {
 
 
     useEffect(() => {
-        if (!userId) return;
+        if (!userId || !profileComplete) return;
         if (!channelRef.current) {
             channelRef.current = pusherClient.subscribe(`private-${userId}`);
 
@@ -48,6 +48,6 @@ export const useNotificationChannel = (userId: string | null) => {
                 channelRef.current = null;
             }
         }
-    }, [userId, handleNewMessage, handleNewLike])
+    }, [userId, handleNewMessage, handleNewLike, profileComplete])
 }
 
