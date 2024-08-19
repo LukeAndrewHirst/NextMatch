@@ -10,9 +10,15 @@ export default auth((req) => {
     const isPublic = publicRoutes.includes(nextUrl.pathname);
     const isAuthRoute = authRoutes.includes(nextUrl.pathname);
     const isProfileComplete = req.auth?.user.profileComplete;
+    const isAdmin = req.auth?.user.role == 'ADMIN';
+    const isAdminRoute = nextUrl.pathname.startsWith('/admin');
 
-    if(isPublic) {
+    if(isPublic || isAdmin) {
         return NextResponse.next();
+    }
+
+    if(isAdminRoute && !isAdmin){
+        return NextResponse.redirect(new URL('/', nextUrl));
     }
 
     if(isAuthRoute) {

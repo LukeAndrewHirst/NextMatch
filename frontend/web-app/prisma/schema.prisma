@@ -33,13 +33,14 @@ model User {
   name              String?
   email             String?   @unique
   emailVerified     DateTime?
-  passwordHas       String?
+  passwordHash      String?
   image             String?
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
   profileComplete   Boolean   @default(false)
-  accounts      Account[]
-  member        Member?
+  role              Role      @default(MEMBER)
+  accounts          Account[]
+  member            Member?
 }
 
 model Member {
@@ -68,6 +69,7 @@ model Photo {
   url                 String
   publicId            String?
   memberId            String
+  isApproved          Boolean     @default(false)
 
   member              Member      @relation(fields: [memberId], references: [id], onDelete: Cascade)
 }
@@ -107,4 +109,9 @@ model Token {
 enum TokenType {
   VERIFICATION
   PASSWORD_RESET
+}
+
+enum Role {
+  ADMIN
+  MEMBER
 }

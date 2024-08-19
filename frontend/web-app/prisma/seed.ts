@@ -11,7 +11,7 @@ async function seedMembers() {
             email: member.email,
             emailVerified: new Date(),
             name: member.name,
-            passwordHas: await hash('password', 10),
+            passwordHash: await hash('password', 10),
             image: member.image,
             profileComplete: true,
             member: {
@@ -27,7 +27,8 @@ async function seedMembers() {
                     image: member.image,
                     photos: {
                         create: {
-                            url: member.image
+                            url: member.image,
+                            isApproved: true
                         }
                     }
                 }
@@ -36,8 +37,21 @@ async function seedMembers() {
     }))
 }
 
+async function seedAdmin() {
+    return prisma.user.create({
+        data: {
+            email: 'admin@test.com',
+            emailVerified: new Date(),
+            name: 'Admin',
+            passwordHash: await hash('password', 10),
+            role: 'ADMIN'
+        }
+    })
+}
+
 async function main() {
     await seedMembers();
+    await seedAdmin();
 }
 
 main().catch(e => {

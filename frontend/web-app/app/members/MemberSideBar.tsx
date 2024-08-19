@@ -18,32 +18,28 @@ export default function MemberSideBar({member, navLinks}: Props) {
 
   return (
     <Card className='w-full mt-10 items-center h-[80vh]'>
-        <Image height={200} width={200} src={transformImageUrl(member.image) || '/images/user.png'} alt={member.name} className='rounded-full mt-6 aspect-square object-cover' />
+        <Image height={200} width={200} src={transformImageUrl(member.image) || '/images/user.png'} alt='User profile main image' className='rounded-full mt-6 aspect-square object-cover'/>
         <CardBody className='overflow-hidden'>
             <div className='flex flex-col items-center'>
-                <div className='text-2xl'>
-                    {member.name}, {calculateAge(member.dateOfBirth)}
+                <div className='flex'>
+                    <div className='text-2xl'>
+                        {member.name}, {calculateAge(member.dateOfBirth)}
+                    </div>
+                    <div>
+                        <PresenceOnline member={member} />
+                    </div>
                 </div>
-                <div>
-                    <PresenceOnline member={member} />
+                <div className='text-sm text-neutral-500'>
+                    {member.country}, {member.city}
                 </div>
-            </div>
-            
-            <div className='text-sm text-neutral-500'>
-                {member.city}, {member.country}
             </div>
             <Divider className='my-3' />
             <nav className='flex flex-col p-4 ml-4 text-2xl gap-4'>
-                {navLinks.map(link => (
-                    <Link href={link.href} key={link.name} className={`block rounded ${pathname === link.href ? 'text-secondary-50' : 'hover:text-secondary-50/50'}`}>
-                        {link.name}
-                    </Link>
-                ))}
-            </nav>
+                    {navLinks.map(link => (
+                        <Link href={link.href} key={link.name} className={`block rounded  ${pathname === link.href ? 'text-secondary' : 'hover:text-secondary/50'}`}>{link.name}</Link>
+                    ))}
+                </nav>
         </CardBody>
-        <CardFooter>
-            <Button as={Link} href='/members' fullWidth color='secondary' variant='bordered'>Go Back</Button>
-        </CardFooter>
     </Card>
   )
 }

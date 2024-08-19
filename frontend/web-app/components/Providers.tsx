@@ -8,6 +8,7 @@ import { usePresenceChannel } from '@/app/hooks/usePresenceChannel';
 import { NextUIProvider } from '@nextui-org/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { SessionProvider } from 'next-auth/react';
 
 export default function Providers({children, userId, profileComplete}: {children: ReactNode, userId: string | null, profileComplete: boolean}) {
   const isUnreadCountSet = useRef(false);
@@ -24,9 +25,11 @@ export default function Providers({children, userId, profileComplete}: {children
   usePresenceChannel(userId, profileComplete);
   useNotificationChannel(userId, profileComplete);
   return (
-    <NextUIProvider>
-      <ToastContainer position='bottom-right' hideProgressBar className='z-50' />
-      {children}
-    </NextUIProvider>
+    <SessionProvider>
+      <NextUIProvider>
+        <ToastContainer position='bottom-right' hideProgressBar className='z-50' />
+        {children}
+      </NextUIProvider>
+    </SessionProvider>
   )
 }

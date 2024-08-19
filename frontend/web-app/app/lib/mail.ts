@@ -15,7 +15,7 @@ export async function sendVerificationEmail(email: string, token: string) {
     })
 }
 
-export async function sendPasswordRestEmail(email: string, token: string) {
+export async function sendPasswordResetEmail(email: string, token: string) {
     const link = `http://localhost:3000/auth/reset-password?token=${token}`;
 
     return resend.emails.send({

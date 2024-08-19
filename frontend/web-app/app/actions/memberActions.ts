@@ -72,10 +72,11 @@ export async function getMemberById(userId: string) {
 }
 
 export async function getMemberPhotosById(userId: string) {
-    const member = await prisma.member.findUnique({where: {userId}, select: {photos: true}});
+    const currentUserId = await getAuthUserId();
+    const member = await prisma.member.findUnique({where: {userId}, select: {photos: {where: currentUserId === userId ? {} : {isApproved: true}}}});
     if(!member) return null;
 
-    return member.photos.map(p => p) as Photo[];
+    return member.photos as Photo[];
 }
 
 export async function updateLastActive() {
