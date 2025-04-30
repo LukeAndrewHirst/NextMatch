@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.7.4",
+    "@auth/prisma-adapter": "^2.9.0",
     "@hookform/resolvers": "^3.10.0",
     "@nextui-org/react": "^2.6.11",
     "@prisma/client": "^5.22.0",
     "bcryptjs": "^2.4.3",
-    "cloudinary": "^2.5.1",
+    "cloudinary": "^2.6.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.18.2",
@@ -25,25 +25,25 @@
     "pusher-js": "^8.4.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.54.2",
-    "react-icons": "^5.4.0",
+    "react-hook-form": "^7.56.1",
+    "react-icons": "^5.5.0",
     "react-toastify": "^10.0.6",
     "resend": "^3.5.0",
-    "zod": "^3.24.1",
+    "zod": "^3.24.3",
     "zustand": "^4.5.6"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
-    "@types/node": "^20.17.16",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
+    "@types/node": "^20.17.32",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "^18.3.6",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.4",
-    "postcss": "^8.5.1",
+    "postcss": "^8.5.3",
     "prisma": "^5.22.0",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.3"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
