@@ -3,16 +3,18 @@ import { useState, useCallback, Key, useEffect, useRef } from "react";
 import { deleteMessage, getMessagesByContainer } from "../actions/messageActions";
 import { MessageDto } from "../types";
 import useMessageStore from "./useMessageStore";
+import { useShallow } from "zustand/shallow";
 
 export const useMessages = (intialMessages: MessageDto[], nextCursor?: string) => {
   const cursorRef = useRef(nextCursor);
-  const {set, remove, messages, updateUnreadCount, resetMessages} = useMessageStore(state => ({
+  const {set, remove, messages, updateUnreadCount, resetMessages} = useMessageStore(
+    useShallow(state => ({
       set: state.set,
       remove: state.remove,
       messages: state.messages,
       updateUnreadCount: state.updateUnreadCount,
       resetMessages: state.resetMessages
-  }));
+    })));
   const router = useRouter();  
   const searchParams = useSearchParams();
   const isOutbox = searchParams.get('container') === 'outbox';

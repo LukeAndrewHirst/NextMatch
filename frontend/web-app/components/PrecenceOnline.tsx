@@ -7,9 +7,7 @@ type Props = {
 }
 
 export default function PresenceOnline({ member }: Props) {
-    const {members} = usePresenceStore(state => ({
-        members: state.members
-    }))
+    const members = usePresenceStore(state => state.members)
 
     const isOnline = members.indexOf(member.userId) !== -1;
     if(!isOnline) return null;

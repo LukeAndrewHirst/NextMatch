@@ -3,13 +3,16 @@ import usePresenceStore from './usePresenceStore'
 import { Channel, Members } from 'pusher-js';
 import { pusherClient } from '../lib/pusher';
 import { updateLastActive } from '../actions/memberActions';
+import { useShallow } from 'zustand/shallow';
 
 export const usePresenceChannel = (userId: string | null, profileComplete: boolean) => {
-    const {set, add, remove} = usePresenceStore(state => ({
-        set: state.set,
-        add: state.add,
-        remove: state.remove
-    }));
+    const {set, add, remove} = usePresenceStore(
+        useShallow(
+            state => ({
+                set: state.set,
+                add: state.add,
+                remove: state.remove
+            })));
     const channelRef = useRef<Channel | null>(null);
 
     const handleSetMembers = useCallback((memberIds: string[]) => {

@@ -4,6 +4,7 @@ import { FaMale, FaFemale } from "react-icons/fa";
 import useFilterStore from "./useFilterStore";
 import { Selection } from "@nextui-org/react";
 import usePaginationStore from "./usePagintationStore";
+import { useShallow } from "zustand/shallow";
 
 export const useFilters = () => {
   const orderByList = [{label: 'Last Active', value: 'updatedAt'}, {label: 'Newest Members', value: 'createdAt'}];
@@ -14,13 +15,15 @@ export const useFilters = () => {
   const router = useRouter();
   
   const {filters, setFilters} = useFilterStore();
-  const {pageNumber, pageSize, setPage, totalCount} = usePaginationStore(state => ({
-    pageNumber: state.pagination.pageNumber,
-    pageSize: state.pagination.pageSize,
-    setPage: state.setPage,
-    totalCount: state.pagination.totalCount
-}))
-
+  const {pageNumber, pageSize, setPage, totalCount} = usePaginationStore(
+    useShallow(
+      state => ({
+      pageNumber: state.pagination.pageNumber,
+      pageSize: state.pagination.pageSize,
+      setPage: state.setPage,
+      totalCount: state.pagination.totalCount
+    })));
+  
   const {gender, ageRange, orderBy, withPhoto} = filters;
 
   useEffect(() => {

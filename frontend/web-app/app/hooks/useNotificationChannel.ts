@@ -6,15 +6,17 @@ import { usePathname, useSearchParams } from "next/navigation";
 import useMessageStore from "./useMessageStore";
 import { newMessageToast } from "@/components/NewMessageToast";
 import { newLikeToast } from "@/components/NotificationToast";
+import { useShallow } from "zustand/shallow";
 
 export const useNotificationChannel = (userId: string | null, profileComplete: boolean) => {
     const channelRef = useRef<Channel | null>(null);
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    const {add, updateUnreadCount} = useMessageStore(state => ({
-        add: state.add,
-        updateUnreadCount: state.updateUnreadCount
-    }))
+    const {add, updateUnreadCount} = useMessageStore(
+        useShallow(state => ({
+            add: state.add,
+            updateUnreadCount: state.updateUnreadCount
+        })));
 
     const handleNewMessage = useCallback((message: MessageDto) => {
         if (pathname === '/messages' && searchParams.get('container') !== 'outbox') {

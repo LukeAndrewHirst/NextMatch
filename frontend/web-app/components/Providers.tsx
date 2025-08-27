@@ -12,7 +12,7 @@ import { SessionProvider } from 'next-auth/react';
 
 export default function Providers({children, userId, profileComplete}: {children: ReactNode, userId: string | null, profileComplete: boolean}) {
   const isUnreadCountSet = useRef(false);
-  const {updateUnreadCount} = useMessageStore(state => ({updateUnreadCount: state.updateUnreadCount}));
+  const updateUnreadCount = useMessageStore(state => state.updateUnreadCount);
   const setUnreadCount = useCallback((amount: number) => {updateUnreadCount(amount);}, [updateUnreadCount])
 
   useEffect(() => {

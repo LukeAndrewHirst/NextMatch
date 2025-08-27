@@ -9,7 +9,7 @@ import {MdOutlineOutbox} from 'react-icons/md';
 import useMessageStore from '../hooks/useMessageStore';
 
 export default function MessageSidebar() {
-    const {unreadCount} = useMessageStore(state => ({unreadCount: state.unreadCount}))
+    const unreadCount = useMessageStore(state => state.unreadCount)
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const router = useRouter();

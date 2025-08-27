@@ -17,9 +17,8 @@ type Props = {
 export default function MessageList({intialMessages, currentUserId, chatId}: Props) {
   const setReadCount = useRef(false);
   const [messages, setMessages] = useState(intialMessages.messages);
-  const {updateUnreadCount} = useMessageStore(state => ({
-    updateUnreadCount: state.updateUnreadCount
-  }));
+  const updateUnreadCount = useMessageStore(state => state.updateUnreadCount);
+  
   useEffect(() => {
     if(!setReadCount.current) {
       updateUnreadCount(-intialMessages.readCount);
