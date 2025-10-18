@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { Button, Link } from "@nextui-org/react";
+import { Button, Link } from "@heroui/react";
 import { GiMatchTip } from "react-icons/gi";
 
 export default async function Home() {

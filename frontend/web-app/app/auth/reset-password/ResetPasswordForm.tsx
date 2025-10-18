@@ -5,7 +5,7 @@ import { ActionResult } from '@/app/types';
 import { useForm } from 'react-hook-form';
 import CardWrapper from '@/components/CardWrapper';
 import { GiPadlock } from 'react-icons/gi';
-import { Button, Input } from '@nextui-org/react';
+import { Button, Input } from "@heroui/react";
 import { resetPasswordSchema } from '@/app/lib/schemas/forgotPasswordSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import ResultMessage from '@/components/ResultMessage';

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Button, Select, SelectItem, Slider, Spinner, Switch } from '@nextui-org/react';
+import { Button, Select, SelectItem, Slider, Spinner, Switch } from '@heroui/react';
 import { useFilters } from '@/app/hooks/useFilters';
 
 export default function Filters() {
@@ -16,7 +16,7 @@ export default function Filters() {
             <div className='flex gap-2 items-center'>
                 <div>Gender:</div>
                 {genderList.map(({icon: Icon, value}) => (
-                    <Button key={value} size='sm' isIconOnly color={filters.gender.includes(value) ? 'secondary' : 'default'} onClick={() => selectGender(value)}>
+                    <Button key={value} size='sm' isIconOnly color={filters.gender.includes(value) ? 'secondary' : 'default'} onPress={() => selectGender(value)}>
                         <Icon size={24} />
                     </Button>
                 ))}
@@ -31,7 +31,7 @@ export default function Filters() {
             <div className='w-1/4'>
                 <Select size='sm' fullWidth label='Order By' variant='bordered' color='secondary' aria-label='Order by selector' selectedKeys={new Set([filters.orderBy])} onSelectionChange={selectOrder}>
                     {orderByList.map(item => (
-                        <SelectItem key={item.value} value={item.value}>{item.label}</SelectItem>
+                        <SelectItem key={item.value}>{item.label}</SelectItem>
                     ))}
                 </Select>
             </div>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { signOutUser } from '@/app/actions/authActions';
-import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@nextui-org/react';
+import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger } from '@heroui/react';
 import Link from 'next/link';
 import { transformImageUrl } from '@/app/lib/util';
 
@@ -18,9 +18,9 @@ export default function UserMenu({userInfo}: Props) {
         </DropdownTrigger>
         <DropdownMenu variant='flat' aria-label='User actions menu'>
             <DropdownSection showDivider>
-                <DropdownItem isReadOnly as='span' className='h-14 flex flex-row' aria-label='username'>{userInfo?.name}</DropdownItem>
-                <DropdownItem as={Link} href='/members/edit'>Edit Profile</DropdownItem>
-                <DropdownItem color='danger' onClick={async() => signOutUser()}>Logout</DropdownItem>
+                <DropdownItem isReadOnly as='span' className='h-14 flex flex-row' aria-label='username' key={''}>{userInfo?.name}</DropdownItem>
+                <DropdownItem as={Link} href='/members/edit' key={''}>Edit Profile</DropdownItem>
+                <DropdownItem color='danger' onPress={async () => signOutUser()} key={''}>Logout</DropdownItem>
             </DropdownSection>
         </DropdownMenu>
     </Dropdown>

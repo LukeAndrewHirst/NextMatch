@@ -3,7 +3,7 @@
 import React from 'react';
 import { Photo } from '@prisma/client';
 import { CldImage } from 'next-cloudinary';
-import { Button, Image, useDisclosure } from '@nextui-org/react';
+import { Button, Image, useDisclosure } from "@heroui/react";
 import clsx from 'clsx';
 import { useRole } from '@/app/hooks/useRole';
 import { ImCheckmark, ImCross } from 'react-icons/im';
@@ -58,8 +58,8 @@ export default function MemberImage({photo}: Props) {
         )}
         {role === 'ADMIN' && (
             <div className='flex flex-row gap-2 mt-2'>
-                <Button onClick={() => approve(photo.id)} color='success' variant='bordered' fullWidth><ImCheckmark size={20}/></Button>
-                <Button onClick={() => reject(photo)} color='danger' variant='bordered' fullWidth><ImCross size={20}/></Button>
+                <Button onPress={() => approve(photo.id)} color='success' variant='bordered' fullWidth><ImCheckmark size={20}/></Button>
+                <Button onPress={() => reject(photo)} color='danger' variant='bordered' fullWidth><ImCross size={20}/></Button>
             </div>
         )}
         <AppModal imageModal={true} isOpen={isOpen} onClose={onClose} body={

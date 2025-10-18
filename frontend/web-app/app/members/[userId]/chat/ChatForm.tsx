@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { messageSchema } from '@/app/lib/schemas/messageSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Button, Input } from '@nextui-org/react';
+import { Button, Input } from "@heroui/react";
 import { HiPaperAirplane } from 'react-icons/hi2';
 import { useParams, useRouter } from 'next/navigation';
 import { createMessage } from '@/app/actions/messageActions';

@@ -2,7 +2,7 @@
 import { verifyEmail } from '@/app/actions/authActions'
 import CardWrapper from '@/components/CardWrapper';
 import ResultMessage from '@/components/ResultMessage';
-import { Spinner } from '@nextui-org/react';
+import { Spinner } from "@heroui/react";
 import React from 'react'
 import { MdOutlineMailOutline } from 'react-icons/md';
 

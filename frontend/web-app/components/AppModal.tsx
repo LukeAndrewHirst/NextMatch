@@ -1,6 +1,6 @@
 
 import React, { ReactNode } from 'react';
-import { Button, ButtonProps, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/react';
+import { Button, ButtonProps, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@heroui/react";
 
 type Props = {
     isOpen: boolean;

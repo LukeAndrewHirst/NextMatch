@@ -1,7 +1,7 @@
 'use client';
 
 import React, {  } from 'react';
-import { Button, Card, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react';
+import { Button, Card, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/react";
 import { MessageDto } from '../types';
 import MessageTableCell from './MessageTableCell';
 import { useMessages } from '../hooks/useMessages';

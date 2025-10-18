@@ -4,7 +4,7 @@ import { generateResetPasswordEmail } from '@/app/actions/authActions';
 import { ActionResult } from '@/app/types';
 import CardWrapper from '@/components/CardWrapper';
 import ResultMessage from '@/components/ResultMessage';
-import { Button, Input } from '@nextui-org/react';
+import { Button, Input } from "@heroui/react";
 import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form'
 import { GiPadlock } from 'react-icons/gi';

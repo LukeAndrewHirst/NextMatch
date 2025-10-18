@@ -1,7 +1,7 @@
 'use'
 
 import React from 'react';
-import { Input } from '@nextui-org/react';
+import { Input } from "@heroui/react";
 import { useFormContext } from 'react-hook-form';
 
 export default function UserDetailsForm() {

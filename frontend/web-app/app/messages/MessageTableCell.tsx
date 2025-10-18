@@ -3,7 +3,7 @@ import React from 'react';
 import { MessageDto } from '../types';
 import PresenceAvatar from '@/components/PresenceAvatar';
 import { truncateString } from '../lib/util';
-import { Button, ButtonProps, useDisclosure } from '@nextui-org/react';
+import { Button, ButtonProps, useDisclosure } from "@heroui/react";
 import { AiFillDelete } from 'react-icons/ai';
 import AppModal from '@/components/AppModal';
 

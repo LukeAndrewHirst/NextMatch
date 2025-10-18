@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useTransition } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { FaMale, FaFemale } from "react-icons/fa";
 import useFilterStore from "./useFilterStore";
-import { Selection } from "@nextui-org/react";
+import { Selection } from "@heroui/react";
 import usePaginationStore from "./usePagintationStore";
 import { useShallow } from "zustand/shallow";
 

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { CardHeader, Divider, CardBody, CardFooter } from '@nextui-org/react';
+import { CardHeader, Divider, CardBody, CardFooter } from "@heroui/react";
 
 type Props = {
     header: ReactNode | string,

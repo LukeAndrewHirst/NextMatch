@@ -1,7 +1,7 @@
 'use client'
 
 import useMessageStore from '@/app/hooks/useMessageStore'
-import { NavbarItem } from '@nextui-org/react'
+import { NavbarItem } from '@heroui/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'

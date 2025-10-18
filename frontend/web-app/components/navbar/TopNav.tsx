@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Navbar, NavbarBrand, NavbarContent } from '@nextui-org/react';
+import { Button, Navbar, NavbarBrand, NavbarContent } from "@heroui/react";
 import Link from 'next/link';
 import { GiMatchTip } from 'react-icons/gi';
 import NavLink from './NavLink';
@@ -10,7 +10,7 @@ import FiltersWrapper from './FiltersWrapper';
 
 export default async function TopNav() {
   const session = await auth();
-  const userInfo = session?.user && await getUserInfoForNav();
+  const userInfo = session?.user && (await getUserInfoForNav());
   const memberLinks = [ {href:'/members', label: 'Matches'},{href:'/lists', label: 'Lists'},{href:'/messages', label: 'Messages'} ];
   const adminLinks = [{href:'/admin/moderation', label: 'Photo Moderation'}];
   const links = session?.user.role === 'ADMIN' ? adminLinks : memberLinks;

@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import CardWrapper from '@/components/CardWrapper';
 import { RiProfileLine } from 'react-icons/ri';
 import ProfileForm from '../register/ProfileForm';
-import { Button } from '@nextui-org/react';
+import { Button } from "@heroui/react";
 import { completeSocialLoginProfile } from '@/app/actions/authActions';
 import { signIn } from 'next-auth/react';
 

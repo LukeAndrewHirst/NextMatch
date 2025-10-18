@@ -1,6 +1,7 @@
+'useclient';
 
-import { Spinner } from '@nextui-org/react'
-import React from 'react'
+import { Spinner } from "@heroui/react";
+import React from 'react';
 
 export default function LoadingComponent({label}: {label?: string}) {
   return (

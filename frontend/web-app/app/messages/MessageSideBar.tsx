@@ -1,6 +1,6 @@
 'use client';
 
-import { Chip } from '@nextui-org/react';
+import { Chip } from '@heroui/react';
 import clsx from 'clsx';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useState } from 'react'

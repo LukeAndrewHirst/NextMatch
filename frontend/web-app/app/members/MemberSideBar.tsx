@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Card, CardBody, CardFooter, Divider, Image } from '@nextui-org/react';
+import { Button, Card, CardBody, CardFooter, Divider, Image } from "@heroui/react";
 import { Member } from '@prisma/client';
 import React from 'react';
 import { calculateAge, transformImageUrl } from '../lib/util';

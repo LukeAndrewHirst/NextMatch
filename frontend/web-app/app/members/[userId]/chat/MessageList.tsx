@@ -16,6 +16,7 @@ type Props = {
 
 export default function MessageList({intialMessages, currentUserId, chatId}: Props) {
   const setReadCount = useRef(false);
+  const channelRef = useRef<Channel | null>(null);
   const [messages, setMessages] = useState(intialMessages.messages);
   const updateUnreadCount = useMessageStore(state => state.updateUnreadCount);
   
@@ -26,7 +27,6 @@ export default function MessageList({intialMessages, currentUserId, chatId}: Pro
     }
   }, [intialMessages.readCount, updateUnreadCount])
   
-  const channelRef = useRef<Channel | null>(null);
   const handleNewMessage = useCallback((message: MessageDto) => {
     setMessages(prevState => 
         {return [...prevState, message]

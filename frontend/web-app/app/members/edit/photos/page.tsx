@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardHeader, Divider, CardBody } from '@nextui-org/react'
+import { CardHeader, Divider, CardBody } from "@heroui/react"
 import { getAuthUserId } from '@/app/actions/authActions';
 import { getMemberById, getMemberPhotosById } from '@/app/actions/memberActions';
 import MemberPhotoUpload from './MemberPhotoUpload';

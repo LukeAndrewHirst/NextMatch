@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
+import { Input, Select, SelectItem, Textarea } from "@heroui/react";
 import { format, subYears } from 'date-fns';
 
 export default function ProfileForm() {

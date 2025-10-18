@@ -2,7 +2,7 @@
 
 import { RegisterSchema, profileSchema, registerSchema } from '@/app/lib/schemas/registerSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Card, CardHeader, CardBody, Button, Input } from '@nextui-org/react';
+import { Card, CardHeader, CardBody, Button, Input } from "@heroui/react";
 import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form';
 import { GiPadlock } from 'react-icons/gi';

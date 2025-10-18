@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { Button, Card, CardBody, CardHeader, Input } from '@nextui-org/react';
+import { Button, Card, CardBody, CardHeader, Input } from "@heroui/react";
 import { GiPadlock } from 'react-icons/gi';
 import { useForm } from 'react-hook-form';
 import { LoginSchema, loginSchema } from '@/app/lib/schemas/loginSchema';

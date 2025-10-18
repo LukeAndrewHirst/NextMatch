@@ -4,7 +4,7 @@ import { updateMemberProfile } from '@/app/actions/userActions';
 import { MemberEditSchema, memberEditSchema } from '@/app/lib/schemas/memberEditSchema';
 import { handleFormServerErrors } from '@/app/lib/util';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button, Input, Textarea } from '@nextui-org/react';
+import { Button, Input, Textarea } from "@heroui/react";
 import { Member } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';

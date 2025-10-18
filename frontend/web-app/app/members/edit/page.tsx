@@ -1,4 +1,4 @@
-import { CardHeader, Divider, CardBody } from '@nextui-org/react'
+import { CardHeader, Divider, CardBody } from "@heroui/react"
 import React from 'react'
 import EditForm from './EditForm'
 import { getAuthUserId } from '@/app/actions/authActions';

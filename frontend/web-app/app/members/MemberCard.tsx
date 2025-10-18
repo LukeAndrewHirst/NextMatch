@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { Card, CardFooter, Image } from '@nextui-org/react'
+import { Card, CardFooter, Image } from "@heroui/react"
 import { Member } from '@prisma/client'
 import Link from 'next/link'
 import { calculateAge, transformImageUrl } from '../lib/util'

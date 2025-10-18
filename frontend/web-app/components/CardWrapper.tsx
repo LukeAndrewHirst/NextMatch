@@ -1,6 +1,6 @@
 
 import React, { ReactNode } from 'react';
-import { Button, Card, CardBody, CardFooter, CardHeader } from '@nextui-org/react';
+import { Button, Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
 import { GiPadlock } from 'react-icons/gi';
 import { IconType } from 'react-icons';
 
@@ -28,7 +28,7 @@ export default function CardWrapper({body, headerIcon: Icon, headerText, subHead
         </CardHeader>
             {body && <CardBody>{body} </CardBody>}
             <CardFooter>
-                {action && (<Button onClick={action} fullWidth color='secondary' variant='bordered'>{actionLabel}</Button>)}
+                {action && (<Button onPress={action} fullWidth color='secondary' variant='bordered'>{actionLabel}</Button>)}
                 {footer && (
                     <>{footer}</>
                 )}

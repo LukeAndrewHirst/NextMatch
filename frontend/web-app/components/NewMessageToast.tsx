@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageDto } from '@/app/types';
 import Link from 'next/link';
-import { Image } from '@nextui-org/react';
+import { Image } from '@heroui/react';
 import { transformImageUrl } from '@/app/lib/util';
 import { toast } from 'react-toastify';
 

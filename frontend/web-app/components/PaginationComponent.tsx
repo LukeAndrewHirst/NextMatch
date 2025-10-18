@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { Pagination } from '@nextui-org/react';
+import { Pagination } from '@heroui/react';
 import clsx from 'clsx';
 import usePaginationStore from '@/app/hooks/usePagintationStore';
 import { useShallow } from 'zustand/shallow';
